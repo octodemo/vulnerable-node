@@ -6,7 +6,7 @@ ENV STAGE "DOCKER"
 
 RUN apt-get update && apt-get install -y netcat
 
-RUN apt-get install -y libssl1.0.0
+RUN apt-get install -y libssl1.1
 
 # Build app folders
 RUN mkdir /app
