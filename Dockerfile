@@ -1,4 +1,4 @@
-FROM node:18.5.0-buster
+FROM node:18.1.0-buster-slim
 
 LABEL maintainer="Daniel García (cr0hn) cr0hn@cr0hn.com"
 
