@@ -1,4 +1,4 @@
-FROM node:18-bullseye-slim
+FROM node:18.5.0-bullseye-slim
 
 LABEL maintainer="Daniel García (cr0hn) cr0hn@cr0hn.com"
 
