@@ -3,7 +3,7 @@ FROM golang:1.16-buster AS build
 WORKDIR /app
 
 # COPY go.mod .
-RUN go mod download
+# RUN go mod download
 
 # COPY *.go .
 
