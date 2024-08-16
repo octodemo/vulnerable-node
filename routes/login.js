@@ -22,14 +22,17 @@ router.post('/login/auth', function(req, res) {
     var password = req.body.password;
     var returnurl = req.body.returnurl;
 
-    logger.error("Tried to login attempt from user = " + user);
+    // Sanitize user input before logging
+    var sanitizedUser = user.replace(/[^a-zA-Z0-9]/g, '');
+    logger.error("Tried to login attempt from user = " + sanitizedUser);
 
     auth(user, password)
         .then(function (data) {
             req.session.logged = true;
             req.session.user_name = user;
 
-            if (returnurl == undefined || returnurl == ""){
+            // Validate the return URL
+            if (!returnurl || !returnurl.startsWith('/')) {
                 returnurl = "/";
             }
 
