@@ -49,12 +49,23 @@ function get_purcharsed(username) {
 
 }
 
+function create(product) {
+    var q = "INSERT INTO products(name, description, price) VALUES('" +
+            product.name + "', '" +
+            product.description + "', '" +
+            product.price +
+            "');";
+
+    return db.one(q);
+}
+
 var actions = {
     "list": list_products,
     "getProduct": getProduct,
     "search": search,
     "purchase": purchase,
-    "getPurchased": get_purcharsed
+    "getPurchased": get_purcharsed,
+    "create": create
 }
 
 module.exports = actions;
