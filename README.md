@@ -10,7 +10,7 @@ Codename | PsEA
 Version | 1.0
 Code | https://github.com/cr0hn/vulnerable-node
 Issues | https://github.com/cr0hn/vulnerable-node/issues/
-Author | Daniel Garcia (cr0hn) - @ggdaniel
+Author | Daniel Garcia (cr0hn) - @ggdaniel123213231
 
 # Support this project
 
