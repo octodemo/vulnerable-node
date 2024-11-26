@@ -6,8 +6,7 @@ Vulnerable Node
 *Vulnerable Node: A very vulnerable web site written in NodeJS*
 
 Codename | PsEA
--------- | ----
-Version | 1.0
+-------- | ----fssdfsfdsfd
 Code | https://github.com/cr0hn/vulnerable-node
 Issues | https://github.com/cr0hn/vulnerable-node/issues/
 Author | Daniel Garcia (cr0hn) - @ggdaniel
