@@ -7,7 +7,7 @@ Vulnerable Node
 
 Codename | PsEA
 -------- | ----
-Version | 1.0
+Version | 1.0asdsadsa
 Code | https://github.com/cr0hn/vulnerable-node
 Issues | https://github.com/cr0hn/vulnerable-node/issues/
 Author | Daniel Garcia (cr0hn) - @ggdaniel
