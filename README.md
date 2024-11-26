@@ -96,6 +96,9 @@ The exactly code location of each vulnerability is pending to write
 
 # References
 
+
+
+
 I took ideas and how to explode it in NodeJS using these references:
 
 - https://blog.risingstack.com/node-js-security-checklist/
