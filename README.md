@@ -51,7 +51,7 @@ Step 1 : FROM library/postgres
 ---> 247a11721cbd
 Step 2 : MAINTAINER "Daniel Garcia aka (cr0hn)" <cr0hn@cr0hn.com>
 ---> Using cache
----> d67c05e9e2d5
+---> d67c05e9e2d5sfdsfdsdf
 Step 3 : ADD init.sql /docker-entrypoint-initdb.d/
 ....
 ```
