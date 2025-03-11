@@ -15,6 +15,8 @@ var products = require('./routes/products');
 
 var app = express();
 
+const secret = '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';
+
 // config second logger
 log4js.loadAppender('file');
 //log4js.addAppender(log4js.appenders.console());
