@@ -1,4 +1,5 @@
 var log4js = require("log4js");
+var sanitize = require('sanitize-html');
 var url = require("url");
 var express = require('express');
 var auth = require("../model/auth");
@@ -10,8 +11,8 @@ var logger = log4js.getLogger('vnode')
 router.get('/login', function(req, res, next) {
 
     var url_params = url.parse(req.url, true).query;
-
-    res.render('login', {returnurl: url_params.returnurl, auth_error: url_params.error});
+    var sanitizedError = sanitize(url_params.error);
+    res.render('login', {returnurl: url_params.returnurl, auth_error: sanitizedError});
 });
 
 
