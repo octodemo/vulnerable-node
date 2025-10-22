@@ -162,6 +162,13 @@ router.all('/products/create', function(req, res, next) {
     }
 
     db_products.create(product)
+        .then(function () {
+            res.json({ message: "Product created successfully" });
+        })
+        .catch(function (err) {
+            console.log(err);
+            res.status(500).json({ message: "Error creating product" });
+        });
 });
 
 module.exports = router;
