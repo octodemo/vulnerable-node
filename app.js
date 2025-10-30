@@ -88,7 +88,7 @@ app.use(function(err, req, res, next) {
 /*
  * Create database
  */
-logger4js.info("Building database")
+logger4js.info("Building database");
 // logger.info(("Building database");
 
 init_db();
