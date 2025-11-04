@@ -63,7 +63,7 @@ router.post('/api/purchases', function(req, res) {
 
     // Validate required fields
     for (var prop in cart) {
-        if (cart[prop] == undefined) {
+        if (cart[prop] === undefined) {
             return res.status(400).json({ success: false, error: "Missing parameter '" + prop + "'" });
         }
     }
