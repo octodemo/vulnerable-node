@@ -68,9 +68,8 @@ router.post('/api/purchases', function(req, res) {
         }
     }
 
-    // Validate email format - using a simpler pattern to avoid ReDoS
-    var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!re.test(cart.mail)) {
+    // Basic email format validation - checking for @ and . characters
+    if (!cart.mail || cart.mail.indexOf('@') === -1 || cart.mail.indexOf('.') === -1) {
         return res.status(400).json({ success: false, error: 'Invalid mail format' });
     }
 
