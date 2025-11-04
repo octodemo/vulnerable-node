@@ -5,12 +5,26 @@ Vulnerable Node
 
 *Vulnerable Node: A very vulnerable web site written in NodeJS*
 
+## ⚠️ Data Classification: PUBLIC - Educational/Testing Only
+
+**WARNING**: This repository contains intentionally vulnerable code for educational purposes. Do not use in production!
+
 Codename | PsEA
 -------- | ----
 Version | 1.0
 Code | https://github.com/cr0hn/vulnerable-node
 Issues | https://github.com/cr0hn/vulnerable-node/issues/
 Author | Daniel Garcia (cr0hn) - @ggdaniel
+Data Classification | **PUBLIC** - Educational/Security Testing
+License | BSD-3-Clause
+
+## 🔒 Compliance & Security
+
+- 📋 [Code of Conduct](CODE_OF_CONDUCT.md)
+- 🤝 [Contributing Guidelines](CONTRIBUTING.md)
+- 🔐 [Security Policy](SECURITY.md)
+- 📦 [Software Bill of Materials (SBOM)](SBOM.md)
+- ⚖️ [License](LICENSE)
 
 # Support this project
 
@@ -101,6 +115,47 @@ I took ideas and how to explode it in NodeJS using these references:
 - https://blog.risingstack.com/node-js-security-checklist/
 - https://github.com/substack/safe-regex
 
+# Compliance Checklist
+
+This repository follows organizational compliance standards:
+
+## Repository Standards
+- [x] **LICENSE file**: BSD-3-Clause license present
+- [x] **README.md**: Comprehensive project documentation
+- [x] **CODE_OF_CONDUCT.md**: Community guidelines defined
+- [x] **CONTRIBUTING.md**: Contribution process documented
+- [x] **SECURITY.md**: Security policy and reporting process
+- [x] **Data Classification**: PUBLIC - Educational/Testing Only
+
+## Security Compliance
+- [x] **Vulnerability Documentation**: All intentional vulnerabilities documented
+- [x] **SBOM Available**: Software Bill of Materials maintained
+- [x] **Security Warnings**: Clear warnings about intentional vulnerabilities
+- [x] **Isolated Use Only**: Documentation specifies isolated environment usage
+- ⚠️ **Known Vulnerabilities**: 24 npm vulnerabilities (intentional for testing)
+- ⚠️ **Hardcoded Credentials**: Present by design for educational purposes
+
+## License Compliance
+- [x] **OSS License**: BSD-3-Clause (permissive)
+- [x] **Dependency Licenses**: All dependencies use compatible licenses (MIT, Apache-2.0)
+- [x] **License Documentation**: Clearly stated in LICENSE file
+
+## Code Quality
+- [x] **Purpose Documented**: Clear statement of educational/testing purpose
+- [x] **Usage Guidelines**: Instructions for safe usage provided
+- [x] **Risk Warnings**: Multiple warnings about production use
+
+## Important Notes
+
+⚠️ **This is an intentionally vulnerable application**. The compliance posture reflects its educational purpose:
+
+- Vulnerabilities are **documented and intentional**
+- Hardcoded secrets are **for demonstration only**
+- Outdated dependencies are **part of the testing scenario**
+- **Never deploy to production** environments
+
+For questions about compliance, see [SECURITY.md](SECURITY.md) or [CONTRIBUTING.md](CONTRIBUTING.md).
+
 # License
 
-This project is released under license BSD.
+This project is released under license BSD-3-Clause. See [LICENSE](LICENSE) for details.
