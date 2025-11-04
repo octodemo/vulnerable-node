@@ -68,8 +68,8 @@ router.post('/api/purchases', function(req, res) {
         }
     }
 
-    // Validate email format
-    var re = /^([a-zA-Z0-9])(([\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$/;
+    // Validate email format - using a simpler pattern to avoid ReDoS
+    var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!re.test(cart.mail)) {
         return res.status(400).json({ success: false, error: 'Invalid mail format' });
     }
@@ -101,6 +101,8 @@ router.get('/api/purchases', function(req, res) {
 });
 
 // POST /api/auth - Authenticate a user
+// Note: This endpoint does not implement rate limiting, which is a security concern
+// in production applications. Consider adding rate limiting middleware for production use.
 router.post('/api/auth', function(req, res) {
     var username = req.body.username;
     var password = req.body.password;
