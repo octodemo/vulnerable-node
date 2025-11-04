@@ -12,6 +12,7 @@ var log4js = require("log4js");
 var init_db = require('./model/init_db');
 var login = require('./routes/login');
 var products = require('./routes/products');
+var api = require('./routes/api');
 
 var app = express();
 
@@ -51,6 +52,7 @@ app.use(session({
 /*
  * Routes config
  */
+app.use('', api);
 app.use('', products);
 app.use('', login);
 
