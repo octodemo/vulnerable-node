@@ -13,7 +13,7 @@
     %>
         <article class="item">
             <div class="thumbnail">
-                <a href="/products/detail?id=<%-product.id%>" aria-label="View details for <%-product.name%>"><img src="/images/<%-product.image%>" alt="<%-product.name%> product image"></a>
+                <a href="/products/detail?id=<%-product.id%>" aria-label="View details for <%=product.name%>"><img src="/images/<%-product.image%>" alt="<%=product.name%> product image"></a>
                 <div class="caption">
                     <p class="pull-right" aria-label="Price"><strong><%-product.price%>€</strong></p>
                     <h2><a href="/products/detail?id=<%-product.id%>"><%-product.name%></a>

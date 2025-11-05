@@ -5,14 +5,14 @@
     <div class="col-md-12">
 
         <div class="thumbnail">
-            <img class="img-responsive" src="/images/<%- product.image %>" alt="<%- product.name %> product image">
+            <img class="img-responsive" src="/images/<%- product.image %>" alt="<%= product.name %> product image">
             <div class="caption-full">
                 <p class="pull-right" aria-label="Price"><strong><%- product.price %> €</strong></p>
                 <h1><%-product.name%></h1>
                 <p><%-product.description%></p>
             </div>
         </div>
-        <button id="buy_button" class="btn btn-success pull-right" type="button" aria-label="Buy <%- product.name %>">Buy <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></button>
+        <button id="buy_button" class="btn btn-success pull-right" type="button" aria-label="Buy <%= product.name %>">Buy <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></button>
         <a class="btn btn-danger pull-left" href="/"><span aria-hidden="true">&larr;</span> Go Back</a>
     </div>
 
