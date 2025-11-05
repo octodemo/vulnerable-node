@@ -1,11 +1,29 @@
-// This file contains dummy information data
+/**
+ * Test Data Module
+ * 
+ * Provides dummy data for database initialization including user accounts
+ * and product catalog. This data is used to populate the database when
+ * the application starts.
+ * 
+ * SECURITY NOTE: Contains hardcoded credentials for demonstration purposes.
+ * These are intentionally weak for security testing.
+ */
 
 var dummy_info = {
-  // Customer module configs
+  /**
+   * Test User Accounts
+   * 
+   * Default credentials for testing:
+   * - admin/admin: Administrative account with default password
+   * - roberto/asdfpiuw981: Regular user account
+   * 
+   * VULNERABILITY: Weak credentials (OWASP A2)
+   * Admin account uses trivial password "admin"
+   */
   "users": [
     {
       "username": "admin",
-      "password": "admin"
+      "password": "admin"  // VULNERABLE: Weak default password
     },
     {
       "username": "roberto",
@@ -13,11 +31,17 @@ var dummy_info = {
     }
   ],
 
+  /**
+   * Product Catalog
+   * 
+   * Dummy products with humorous descriptions for the vulnerable shop.
+   * Prices are randomized on each application start for variety.
+   */
   "products": [
     {
       "name": "My public privacy",
       "description": "Grant privacy in public to watch your favorite programs",
-      "price": parseInt(Math.random() * 100),
+      "price": parseInt(Math.random() * 100),  // Random price 0-99
       "image": "product_1.jpg"
     },
     {
@@ -35,13 +59,13 @@ var dummy_info = {
     {
       "name": "Potty Putter",
       "description": "The game for the avid golfers!",
-      "price": 20,
+      "price": 20,  // Fixed price
       "image": "product_4.jpg"
     },
     {
       "name": "Phone Fingers",
       "description": "Phone fingers work perfectly well with iPhone's touch screen and prevent fingerprints and smudges",
-      "price": 3,
+      "price": 3,  // Fixed price
       "image": "product_5.jpg"
     },
     {
@@ -65,4 +89,5 @@ var dummy_info = {
   ]
 }
 
+// Export dummy data object
 module.exports = dummy_info;
