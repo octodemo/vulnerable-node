@@ -47,8 +47,8 @@ postgres_db:
 | **Username** | postgres |
 | **Password** | postgres |
 
-> [!WARNING]
-> These are intentionally weak credentials for a demonstration application. Never use default credentials in production.
+> [!CAUTION]
+> These are intentionally weak default credentials for demonstration purposes. This is a critical security vulnerability that must NEVER be used in production environments.
 
 ### Database Schema
 
@@ -71,6 +71,9 @@ postgres://postgres:postgres@127.0.0.1/vulnerablenode
 ```
 postgres://postgres:postgres@postgres_db/vulnerablenode
 ```
+
+> [!CAUTION]
+> All connection strings contain hardcoded credentials. This is a critical security vulnerability intentionally present for demonstration purposes.
 
 **Development Environment:**
 ```
