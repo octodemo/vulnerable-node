@@ -1,29 +1,34 @@
 <% layout('content') %>
 
 <% if (products.length == 0) { %>
-<h3 style="color: red;">You haven't purchased any product yet.</h3>
+<div role="status" aria-live="polite" class="alert alert-info">
+    <h1>No purchases yet</h1>
+    <p>You haven't purchased any products yet. Browse our <a href="/">product catalog</a> to get started.</p>
+</div>
 <% } else {%>
 
-<h2>Your purchased products:</h2>
+<h1>Your purchased products</h1>
+<p role="status" aria-live="polite">You have <%- products.length %> purchased product<%= products.length !== 1 ? 's' : '' %></p>
 
 <div class="table-responsive">
-    <table class="table">
+    <table class="table table-striped" role="table" aria-label="Purchased products">
+        <caption class="sr-only">List of your purchased products</caption>
         <thead>
         <tr>
-            <th>Product ID</th>
-            <th>Product Name</th>
-            <th>Contact mail</th>
-            <th>Contact phone</th>
-            <th>Shipping date</th>
-            <th>Shipping address</th>
-            <th>Price</th>
+            <th scope="col">Product ID</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Contact email</th>
+            <th scope="col">Contact phone</th>
+            <th scope="col">Shipping date</th>
+            <th scope="col">Shipping address</th>
+            <th scope="col">Price</th>
         </tr>
         </thead>
         <tbody>
 
         <% for( var i=0; i < products.length; i++)  {%>
         <tr>
-            <td><%- products[i].product_id %></td>
+            <th scope="row"><%- products[i].product_id %></th>
             <td><%- products[i].product_name %></td>
             <td><%- products[i].mail %></td>
             <td><%- products[i].phone %></td>

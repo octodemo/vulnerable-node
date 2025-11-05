@@ -1,26 +1,26 @@
 <% layout('content') %>
 
-<div class="jumbotron">
-    <h1>Hello, to NodeVulnerable!</h1>
-    <p>The application to test the vulnerability code analyzers. This app try to simulta a shop</p>
-    <p>Bellow the product list</p>
-</div>
+<header class="jumbotron">
+    <h1>Welcome to NodeVulnerable!</h1>
+    <p>The application to test the vulnerability code analyzers. This app simulates an online shop.</p>
+    <p>Browse our product list below</p>
+</header>
 
 
-<div id="grid">
+<section id="grid" aria-label="Product listing">
     <% for( var i=0; i < products.length; i++)  {
         var product = products[i];;
     %>
-        <div class="item">
+        <article class="item">
             <div class="thumbnail">
-                <a href="/products/detail?id=<%-product.id%>"><img src="/images/<%-product.image%>" alt=""></a>
+                <a href="/products/detail?id=<%-product.id%>" aria-label="View details for <%-product.name%>"><img src="/images/<%-product.image%>" alt="<%-product.name%> product image"></a>
                 <div class="caption">
-                    <h4 class="pull-right"><%-product.price%>€</h4>
-                    <h4><a href="/products/detail?id=<%-product.id%>"><%-product.name%></a>
-                    </h4>
+                    <p class="pull-right" aria-label="Price"><strong><%-product.price%>€</strong></p>
+                    <h2><a href="/products/detail?id=<%-product.id%>"><%-product.name%></a>
+                    </h2>
                     <p><%-product.description%></p>
                 </div>
             </div>
-        </div>
+        </article>
     <% }%>
-</div>
+</section>

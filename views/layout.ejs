@@ -6,10 +6,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="NodeVulnerable - Demo E-commerce Application">
     <meta name="author" content="">
 
-    <title>Bare - Start Bootstrap Template</title>
+    <title>NodeVulnerable - Demo E-commerce Store</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -20,6 +20,19 @@
         body {
             padding-top: 70px;
             /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+        }
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
         }
     </style>
 
@@ -33,6 +46,8 @@
 </head>
 
 <body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <%-body%>
 
@@ -64,7 +79,11 @@
 
     $(document).ready(function () {
         $("#buy_button").click(function () {
-            $("#buy-screen").modal();
+            $("#buy-screen").modal("show");
+            // Focus on the first input field when modal opens
+            $("#buy-screen").on('shown.bs.modal', function () {
+                $("#mail").focus();
+            });
         })
 
         $("#buy-form").submit(function (event) {
@@ -77,12 +96,35 @@
                 data: $("#buy-form").serialize()
             }).done(function(data) {
                 $("#buy-screen").modal("hide");
-                $('<div class="modal fade in" tabindex="-1" role="dialog" style="display: block;"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button><h4 class="modal-title">' + data.message + '</h4></div><div class="modal-footer"><button type="button" class="btn btn-success" data-dismiss="modal">Ok</button></div></div></div></div>').modal();
-
-                window.location = "/products/purchased";
+                // Create accessible success modal with ARIA attributes
+                var successModal = $('<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="success-modal-title" aria-live="polite">' +
+                    '<div class="modal-dialog" role="document">' +
+                    '<div class="modal-content">' +
+                    '<div class="modal-header">' +
+                    '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>' +
+                    '<h2 class="modal-title" id="success-modal-title">' + data.message + '</h2>' +
+                    '</div>' +
+                    '<div class="modal-footer">' +
+                    '<button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>');
+                
+                successModal.modal("show");
+                // Announce to screen readers
+                successModal.on('shown.bs.modal', function () {
+                    $(this).find('.btn-success').focus();
+                });
+                
+                successModal.on('hidden.bs.modal', function () {
+                    window.location = "/products/purchased";
+                });
             }).fail(function (data) {
-                $("#buy-screen").html(data.message);
-                $("#buy-screen").show();
+                var errorElement = $("#error");
+                errorElement.text(data.responseJSON ? data.responseJSON.message : "An error occurred");
+                errorElement.removeClass("hidden");
+                errorElement.attr("aria-live", "assertive");
             });
         })
     })
