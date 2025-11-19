@@ -3,6 +3,11 @@ var check_logged = require("./login_check");
 var db_user_profiles = require("../model/user_profiles");
 var router = express.Router();
 
+/**
+ * User Profile CRUD Endpoints
+ * All endpoints require authentication via check_logged
+ */
+
 // Create a new user profile
 router.post('/api/profiles', function(req, res, next) {
     check_logged(req, res);
