@@ -59,6 +59,13 @@ function init_db() {
         .catch(function (err) {
         });
 
+    db.one('CREATE TABLE user_profiles(username VARCHAR(100) PRIMARY KEY, email VARCHAR(100) not null, full_name VARCHAR(200), bio TEXT, avatar_url VARCHAR(500))')
+        .then(function () {
+
+        })
+        .catch(function (err) {
+        });
+
 
 }
 
