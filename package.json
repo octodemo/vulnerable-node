@@ -11,11 +11,16 @@
     "debug": "^2.6.9",
     "ejs": "^3.1.7",
     "ejs-locals": "^1.0.2",
-    "express": "~4.13.1",
+    "express": "^4.21.2",
     "express-session": "^1.13.0",
     "log4js": "^0.6.36",
     "morgan": "^1.9.1",
     "pg-promise": "^4.4.6",
     "serve-favicon": "~2.3.0"
+  },
+  "overrides": {
+    "ejs-locals": {
+      "ejs": "^3.1.10"
+    }
   }
 }
