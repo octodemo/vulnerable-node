@@ -45,6 +45,14 @@ The most simple way to run the project is using docker-compose, doing this:
 
 # git clone https://github.com/cr0hn/vulnerable-node.git vulnerable-node
 # cd vulnerable-node/
+
+# Set up Docker secrets (required)
+# See SECURITY.md for detailed instructions
+mkdir -p secrets
+echo "postgres" > secrets/db_user.txt
+echo "your_secure_password" > secrets/db_password.txt
+chmod 600 secrets/*.txt
+
 # docker-compose build && docker-compose up
 Building postgres_db
 Step 1 : FROM library/postgres
@@ -55,6 +63,19 @@ Step 2 : MAINTAINER "Daniel Garcia aka (cr0hn)" <cr0hn@cr0hn.com>
 Step 3 : ADD init.sql /docker-entrypoint-initdb.d/
 ....
 ```
+
+## Docker Security
+
+This project implements comprehensive Docker security hardening:
+
+- **Non-root users**: Containers run as non-privileged users
+- **Docker secrets**: Credentials stored securely in secret files
+- **Capability dropping**: Minimal Linux capabilities
+- **Resource limits**: CPU and memory constraints
+- **Health checks**: Automatic container health monitoring
+- **Network isolation**: Database port not exposed externally
+
+For detailed security documentation, see [SECURITY.md](SECURITY.md).
 
 ## Running
 

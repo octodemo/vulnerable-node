@@ -1,4 +1,9 @@
 # Created by .ignore support plugin (hsz.mobi)
+
+# Docker secrets - NEVER commit actual secret files
+secrets/*.txt
+!secrets/*.txt.example
+
 ### Node template
 # Logs
 logs
