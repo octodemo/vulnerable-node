@@ -7,7 +7,7 @@ function readSecret(secretPath, defaultValue) {
             return fs.readFileSync(secretPath, 'utf8').trim();
         }
     } catch (err) {
-        console.warn('Warning: Could not read secret from ' + secretPath);
+        console.warn('Warning: Could not read secret file');
     }
     return defaultValue;
 }
