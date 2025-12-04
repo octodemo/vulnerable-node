@@ -100,7 +100,10 @@ I took ideas and how to explode it in NodeJS using these references:
 
 - https://blog.risingstack.com/node-js-security-checklist/
 - https://github.com/substack/safe-regex
-
+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
 # License
 
 This project is released under license BSD.
+
+
+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
