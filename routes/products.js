@@ -144,6 +144,31 @@ router.all('/products/buy', function(req, res, next) {
 
 });
 
+router.all('/products/create', function(req, res, next) {
+    let params = null;
+    if (req.method == "GET"){
+        params = url.parse(req.url, true).query;
+    } else {
+        params = req.body;
+    }
 
+    let product = null;
+    product = {
+        name: params.name,
+        description: params.description,
+        price: params.price,
+        image: params.image,
+        username: req.session.user_name
+    }
+
+    db_products.create(product)
+        .then(function () {
+            res.json({ message: "Product created successfully" });
+        })
+        .catch(function (err) {
+            console.log(err);
+            res.status(500).json({ message: "Error creating product" });
+        });
+});
 
 module.exports = router;
