@@ -1,30 +1,36 @@
 <% layout('content') %>
 
-<h2>Results for: <%- in_query %></h2>
+<h1>Search Results</h1>
+<p role="status" aria-live="polite">Results for: <strong><%- in_query %></strong></p>
 
 <% if (products.length == 0) { %>
-<h3 style="color: red;">Products not found</h3>
+<div role="alert" aria-live="assertive" class="alert alert-warning">
+    <h2>No products found</h2>
+    <p>We couldn't find any products matching your search. Please try a different search term.</p>
+</div>
 <% } else {%>
+<p role="status" aria-live="polite">Found <%- products.length %> product<%= products.length !== 1 ? 's' : '' %></p>
 <div class="table-responsive">
-    <table class="table">
+    <table class="table table-striped" role="table" aria-label="Search results">
+        <caption class="sr-only">Search results for <%= in_query %></caption>
         <thead>
         <tr>
-            <th>#</th>
-            <th>Product name</th>
-            <th>Product description</th>
-            <th>Price</th>
-            <th>Info</th>
+            <th scope="col">#</th>
+            <th scope="col">Product name</th>
+            <th scope="col">Product description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Details</th>
         </tr>
         </thead>
         <tbody>
 
         <% for( var i=0; i < products.length; i++)  {%>
         <tr>
-            <td><%- i + 1 %></td>
+            <th scope="row"><%- i + 1 %></th>
             <td><%- products[i].name %></td>
             <td><%- products[i].description %></td>
-            <td><%- products[i].price %></td>
-            <td><a href="/products/detail?id=<%- i + 1 %>"><i class="glyphicon glyphicon-list"></i></a></td>
+            <td><%- products[i].price %>€</td>
+            <td><a href="/products/detail?id=<%- i + 1 %>" aria-label="View details for <%= products[i].name %>"><span class="glyphicon glyphicon-list" aria-hidden="true"></span><span class="sr-only">View details</span></a></td>
         </tr>
         <%}%>
         </tbody>

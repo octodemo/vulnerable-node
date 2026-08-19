@@ -1,18 +1,18 @@
 <% layout('layout') %>
 
 <!-- Navigation -->
-<nav class="navbar navbar navbar-fixed-top navbar-inverse" role="navigation">
+<nav class="navbar navbar navbar-fixed-top navbar-inverse" role="navigation" aria-label="Main navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" aria-controls="bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
             <div style="margin-left: 50px;">
-                <img class="pull-left" width="50px" src="/images/logo.png" alt="logo">
+                <img class="pull-left" width="50px" src="/images/logo.png" alt="NodeVulnerable logo">
                 <a style="margin-left: 5px;" class="navbar-brand" href="/"> NodeVulnerable</a>
             </div>
         </div>
@@ -20,11 +20,12 @@
         <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <form class="form-inline" style="padding-top: 8px;" method="GET" action="/products/search">
+                    <form class="form-inline" style="padding-top: 8px;" method="GET" action="/products/search" role="search" aria-label="Product search">
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="q" placeholder="Search in products...">
-                                <span class="input-group-addon" id="start-date"><span class="glyphicon glyphicon-search"></span></span>
+                                <label for="product-search" class="sr-only">Search products</label>
+                                <input type="text" class="form-control" id="product-search" name="q" placeholder="Search in products..." aria-label="Search in products">
+                                <span class="input-group-addon" id="search-button-label"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><span class="sr-only">Search</span></span>
                             </div>
                         </div>
                     </form>
@@ -46,9 +47,9 @@
 </nav>
 
 <!-- Page Content -->
-<div class="container">
+<main id="main-content" class="container" role="main" aria-label="Main content">
 
     <!-- /.row -->
     <%-body%>
-</div>
+</main>
 <!-- /.container -->
